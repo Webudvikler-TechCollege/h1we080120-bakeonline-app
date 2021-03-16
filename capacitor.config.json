@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "h1we080120-bakeonline-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

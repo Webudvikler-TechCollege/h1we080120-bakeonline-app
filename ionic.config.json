@@ -1,0 +1,7 @@
+{
+  "name": "h1we080120-bakeonline-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
