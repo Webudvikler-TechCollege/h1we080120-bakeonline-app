@@ -1,10 +1,10 @@
 import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar } from "@ionic/react"
 
-export const Header:React.FC<{name: string}> = props => {
+export const Header:React.FC = () => {
     return (
         <IonHeader>
             <IonToolbar>
-                <IonTitle>{props.name}</IonTitle>
+                <IonTitle>BakeOnline</IonTitle>
                 <IonButtons>
                     <IonMenuButton />
                 </IonButtons>
