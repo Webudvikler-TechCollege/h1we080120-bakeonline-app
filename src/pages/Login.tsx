@@ -5,7 +5,8 @@ export const Login: React.FC = props => {
   return (
     <IonPage>
       <Header />
-      <IonContent fullscreen>
+      <IonContent className="ion-padding-horizontal" fullscreen>
+        <h1 className="ion-text-center">Login</h1>
       </IonContent>
       <IonFooter />
     </IonPage>

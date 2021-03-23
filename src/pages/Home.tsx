@@ -6,7 +6,8 @@ export const Home: React.FC = props => {
   return (
     <IonPage>
       <Header />
-      <IonContent fullscreen>
+      <IonContent className="ion-padding-horizontal" fullscreen>
+        <h1 className="ion-text-center">Velkommen til BakeOnline</h1>
         <NewsList />
       </IonContent>
       <IonFooter />
