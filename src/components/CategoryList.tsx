@@ -36,7 +36,7 @@ export const CategoryList = () => {
             {apiData && apiData.items && apiData.items.map((item, i) => {
                 return (
                     <IonItem key={item.id}>
-                        {item.title}
+                        <a href={`/page/Products/${item.id}`}>{item.title}</a>
                     </IonItem>
                 )
             })}
