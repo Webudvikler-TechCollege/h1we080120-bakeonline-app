@@ -1,5 +1,6 @@
-import { IonContent, IonFooter, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonFooter, IonPage } from '@ionic/react';
 import { Header } from '../components/partials/Header';
+import { ProductList } from '../components/ProductList';
 
 export const Products: React.FC = props => {
   return (
@@ -7,6 +8,7 @@ export const Products: React.FC = props => {
       <Header />
       <IonContent className="ion-padding-horizontal" fullscreen>
         <h1 className="ion-text-center">Produkter</h1>
+        <ProductList />
       </IonContent>
       <IonFooter />
     </IonPage>

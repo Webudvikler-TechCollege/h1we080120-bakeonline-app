@@ -2,7 +2,7 @@ import { IonItem, IonList } from "@ionic/react"
 import { useEffect, useState } from "react"
 import { fetch2api } from "../helpers/helpers";
 
-export const CategoryList = () => {
+export const CategoryList:React.FC = () => {
     interface iCategoryData {
         status: boolean;
         error: string;
