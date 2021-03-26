@@ -40,14 +40,14 @@ export const ProductList:React.FC = () => {
             setApiData(result);
         }
         getProductList();
-    })
+    }, [categoryId])
 
 
     return (
         <IonList>
             {apiData && apiData.item && apiData.item.products && apiData.item.products.map((item, i) => {
                 return (
-                    <IonItem key={item.id} >
+                    <IonItem key={item.id} routerLink={`/page/Product/${item.id}/info`}>
                         <IonThumbnail>
                             <img src={item.image.fullpath} alt={item.title} />
                         </IonThumbnail>
