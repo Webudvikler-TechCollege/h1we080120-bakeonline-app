@@ -35,8 +35,8 @@ export const CategoryList:React.FC = () => {
         <IonList>
             {apiData && apiData.items && apiData.items.map((item, i) => {
                 return (
-                    <IonItem key={item.id}>
-                        <a href={`/page/Products/${item.id}`}>{item.title}</a>
+                    <IonItem key={item.id} routerLink={`/page/Products/${item.id}`}>
+                        {item.title}
                     </IonItem>
                 )
             })}
