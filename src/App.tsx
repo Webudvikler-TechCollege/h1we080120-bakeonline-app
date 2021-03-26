@@ -25,6 +25,7 @@ import { Home } from './pages/Home';
 import { Categories } from './pages/Categories';
 import { Login } from './pages/Login';
 import { Products } from './pages/Products';
+import { Product } from './pages/Product';
 
 const App: React.FC = () => {
   return (
@@ -42,8 +43,11 @@ const App: React.FC = () => {
               <Categories />
             </Route>
 
-            <Route path="/page/Products/:productId" exact={true}>
+            <Route path="/page/Products/:categoryId" exact={true}>
               <Products />
+            </Route>
+
+            <Route path="/page/Product/:productId" exact={true}>
             </Route>
 
             <Route path="/page/Login" exact={true}>

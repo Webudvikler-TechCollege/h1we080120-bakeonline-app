@@ -1,4 +1,4 @@
-import { IonAvatar, IonItem, IonList, IonText, IonThumbnail } from "@ionic/react"
+import { IonItem, IonList, IonText, IonThumbnail } from "@ionic/react"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { fetch2api } from "../helpers/helpers";
@@ -30,16 +30,15 @@ export const ProductList:React.FC = () => {
         }
     }
 
-    const { productId } = useParams<any>();
+    const { categoryId } = useParams<any>();
     const [apiData, setApiData] = useState<iCategoryData>();
 
     useEffect(() => {
         const getProductList = async () => {
-            const url = `https://api.mediehuset.net/bakeonline/categories/${productId}`;
+            const url = `https://api.mediehuset.net/bakeonline/categories/${categoryId}`;
             const result = await fetch2api(url);
             setApiData(result);
         }
-
         getProductList();
     })
 
@@ -48,7 +47,7 @@ export const ProductList:React.FC = () => {
         <IonList>
             {apiData && apiData.item && apiData.item.products && apiData.item.products.map((item, i) => {
                 return (
-                    <IonItem key={item.id}>
+                    <IonItem key={item.id} >
                         <IonThumbnail>
                             <img src={item.image.fullpath} alt={item.title} />
                         </IonThumbnail>
