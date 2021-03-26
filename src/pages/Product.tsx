@@ -12,6 +12,8 @@ import { chatboxEllipsesOutline, informationCircleOutline, listOutline } from "i
 import { useEffect, useState } from "react";
 import { Route, RouteComponentProps, useParams } from "react-router";
 import { Header } from "../components/partials/Header";
+import { ProductInfo } from "../components/ProductInfo";
+import { ProductIngredients } from "../components/ProductIngredients";
 import { fetch2api } from "../helpers/helpers";
 
 export const Product: React.FC<RouteComponentProps> = ({ match }) => {
@@ -48,7 +50,6 @@ export const Product: React.FC<RouteComponentProps> = ({ match }) => {
       const url = `https://api.mediehuset.net/bakeonline/products/${productId}`;
       const result = await fetch2api(url);
       setProductData(result);
-      console.log(result);
     };
     getProductData();
   }, [productId]);
@@ -60,10 +61,10 @@ export const Product: React.FC<RouteComponentProps> = ({ match }) => {
         <IonTabs>
           <IonRouterOutlet id="tabs">
             <Route path={`${match.url}/:tab(info)`}>
-                Testing 
+                <ProductInfo {...productData} />
             </Route>
             <Route path={`${match.url}/:tab(ingredients)`}>
-                Testing 
+                <ProductIngredients  {...productData} />
             </Route>
             <Route path={`${match.url}/:tab(comments)`}>
                 Testing 
