@@ -26,28 +26,31 @@ import { Categories } from './pages/Categories';
 import { Login } from './pages/Login';
 import { Products } from './pages/Products';
 import { Product } from './pages/Product';
+import { AppContextProvider } from './context/ContextProvider';
 
 const App: React.FC = () => {
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
+    <AppContextProvider>
+      <IonApp>
+        <IonReactRouter>
+          <IonSplitPane contentId="main">
+            <Menu />
+            <IonRouterOutlet id="main">
 
-            <Route path="/page/Home" exact={true} component={Home} />
-            <Route path="/page/Categories" exact={true} component={Categories} />
-            <Route path="/page/Products/:categoryId" exact={true} component={Products} /> 
-            <Route path="/page/Product/:productId" component={Product} />
-            <Route path="/page/Login" exact={true} component={Login} />
-            <Route path="/" exact={true}>
-              <Redirect to="/page/Home" />
-            </Route>
+              <Route path="/page/Home" exact={true} component={Home} />
+              <Route path="/page/Categories" exact={true} component={Categories} />
+              <Route path="/page/Products/:categoryId" exact={true} component={Products} /> 
+              <Route path="/page/Product/:productId" component={Product} />
+              <Route path="/page/Login" exact={true} component={Login} />
+              <Route path="/" exact={true}>
+                <Redirect to="/page/Home" />
+              </Route>
 
-          </IonRouterOutlet>
-        </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
+            </IonRouterOutlet>
+          </IonSplitPane>
+        </IonReactRouter>
+      </IonApp>
+    </AppContextProvider>
   );
 };
 
