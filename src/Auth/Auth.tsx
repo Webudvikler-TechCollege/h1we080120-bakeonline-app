@@ -1,5 +1,5 @@
-import { IonButton, IonContent, IonInput, IonItem, IonLabel } from "@ionic/react"
-import { useState, useRef } from "react";
+import { IonButton, IonInput, IonItem, IonLabel } from "@ionic/react"
+import { useState } from "react";
 import { fetch2api } from '../helpers/helpers'
 //import { useLoginContext } from "../../context/ContextProvider";
 
