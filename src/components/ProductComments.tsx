@@ -1,7 +1,7 @@
 import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonItem, IonList } from "@ionic/react"
 import { useEffect, useState } from "react";
-import { Auth } from "../Auth/Auth";
-import { useLoginContext } from "../context/ContextProvider";
+import { AuthLoginForm } from "../Auth/AuthLoginForm";
+import { useLoginContext } from "../Auth/AuthContextProvider";
 import { fetch2api } from "../helpers/helpers";
 
 export const ProductComments:React.FC<any> = (props) => {
@@ -26,8 +26,6 @@ export const ProductComments:React.FC<any> = (props) => {
         ]
     }
 
-    console.log(props.item.id);
-
     const { loginData } = useLoginContext();
     const [commentData, setCommentData] = useState<iCommentData>();
 
@@ -36,6 +34,7 @@ export const ProductComments:React.FC<any> = (props) => {
             if(loginData && loginData.username) {
                 const url = `https://api.mediehuset.net/bakeonline/comments/${props.item.id}`;
                 let result = await fetch2api(url, "GET", loginData.access_token);
+                result.items.reverse();
                 setCommentData(result);
             }
         }
@@ -54,18 +53,20 @@ export const ProductComments:React.FC<any> = (props) => {
             {loginData && loginData.username ? (
                 <IonList>
                     {commentData && commentData.items.map((item, i) => {
+                        let date2local = new Date(item.created*1000).toLocaleDateString();
                         return (
                             <IonItem key={i}>
-                                <strong>{`${item.title}`}</strong>
-                                <p>{`${item.comment}`}</p>
-                                <p><i>{`${item.user.username}`}</i></p>
+                                <div>
+                                    <strong>{`${item.title}`}</strong>
+                                    <p>{`${item.comment}`}</p>
+                                    <p><i>{`${item.user.username} d. ${date2local}`}</i></p>
+                                </div>
                             </IonItem>
                         )
                     })}
-                    <p>Her kommer kommentarer</p>                
                 </IonList>
             ) : (
-                <Auth />
+                <AuthLoginForm />
             )
 
             }

@@ -26,7 +26,7 @@ import { Categories } from './pages/Categories';
 import { Login } from './pages/Login';
 import { Products } from './pages/Products';
 import { Product } from './pages/Product';
-import { AppContextProvider } from './context/ContextProvider';
+import { AppContextProvider } from './Auth/AuthContextProvider';
 
 const App: React.FC = () => {
   return (

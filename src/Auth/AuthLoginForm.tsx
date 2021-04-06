@@ -1,10 +1,10 @@
 import { IonButton, IonInput, IonItem, IonLabel } from "@ionic/react"
 import { useState } from "react";
 import { fetch2api } from '../helpers/helpers'
-import { useLoginContext } from "../context/ContextProvider";
+import { useLoginContext } from "./AuthContextProvider";
 
 
-export const Auth:React.FC = () => {
+export const AuthLoginForm:React.FC = () => {
     const { loginData, setLoginData } = useLoginContext();
     const [message, setMessage] = useState<string>('');
     const [username, setUsername] = useState<string>('');
