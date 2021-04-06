@@ -1,7 +1,7 @@
 import { IonButton, IonInput, IonItem, IonLabel } from "@ionic/react"
 import { useState } from "react";
 import { fetch2api } from '../helpers/helpers'
-//import { useLoginContext } from "../../context/ContextProvider";
+import { useLoginContext } from "../context/ContextProvider";
 
 
 export const Auth:React.FC = () => {
@@ -9,7 +9,6 @@ export const Auth:React.FC = () => {
     const [message, setMessage] = useState<string>('');
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-
 
     const handleLogin = async () => {
         setMessage('');
@@ -45,7 +44,7 @@ export const Auth:React.FC = () => {
         <>
             <p>{message}</p>
 
-            {!loginData.username ? 
+            {!loginData ? 
                 <>
                     <IonItem className="ion-no-padding" lines="none">
                         <IonLabel position="floating">Brugernavn:</IonLabel>
@@ -64,7 +63,6 @@ export const Auth:React.FC = () => {
                     <IonItem className="ion-no-padding" lines="none">
                         <IonButton onClick={handleLogout}>Log out</IonButton>
                     </IonItem>
-
                 </>
             }
         </>

@@ -12,6 +12,7 @@ import { chatboxEllipsesOutline, informationCircleOutline, listOutline } from "i
 import { useEffect, useState } from "react";
 import { Route, RouteComponentProps, useParams } from "react-router";
 import { Header } from "../components/partials/Header";
+import { ProductComments } from "../components/ProductComments";
 import { ProductInfo } from "../components/ProductInfo";
 import { ProductIngredients } from "../components/ProductIngredients";
 import { fetch2api } from "../helpers/helpers";
@@ -67,7 +68,7 @@ export const Product: React.FC<RouteComponentProps> = ({ match }) => {
                 <ProductIngredients  {...productData} />
             </Route>
             <Route path={`${match.url}/:tab(comments)`}>
-                Testing 
+                <ProductComments  {...productData} />
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
